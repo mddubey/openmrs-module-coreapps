@@ -44,9 +44,9 @@ public class ParseEncounterToJson {
         }
 
 
-        SimpleObject simpleEncounter = SimpleObject.fromObject(new EncounterDomainWrapper(encounter), uiUtils, "encounterId",
-                "location", "encounterDatetime", "encounterProviders.provider", "voided", "form");
-
+        //To fetch the encounterRole for providers
+        SimpleObject.fromObject(new EncounterDomainWrapper(encounter), uiUtils, "encounterId",
+                "location", "encounterDatetime", "encounterProviders.provider","encounterProviders.encounterRole", "voided", "form")
         // UUID is not provided by EncounterDomainWrapper, adding it here.
         simpleEncounter.put("uuid", encounter.getUuid());
         // manually set the date and time components so we can control how we format them

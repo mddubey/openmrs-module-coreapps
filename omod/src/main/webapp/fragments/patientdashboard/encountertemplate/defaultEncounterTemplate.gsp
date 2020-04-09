@@ -41,6 +41,16 @@
 	    </li>
 	</ul>
 
+	<!--Show as encounter metadata-->
+	<div class="encounter-providers">
+		<label> Encounter Providers: </label>
+		<ul>
+			{{ _.each(encounter.encounterProviders, function(encounterProvider) { }}
+				<p>{{- encounterProvider.provider}}</p>
+			{{ }); }}
+		</ul>
+	</div>
+
 	<span>
         {{ if ( (config.editable == null || config.editable) && encounter.canEdit) { }}
             <i class="viewEncounter view-action icon-file-alt" data-mode="view" data-patient-id="{{- patient.id }}" data-encounter-id="{{- encounter.encounterId }}" {{ if (config.viewUrl) { }} data-view-url="{{- config.viewUrl }}" {{ } }} {{ if (config.uiStyle) { }} data-ui-style="{{- config.uiStyle }}" {{ } }} title="${ ui.message("coreapps.view") }"></i>
